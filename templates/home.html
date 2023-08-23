@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+{% block content %}
+    <div class="landing-screen-bg">
+        <div class="center">
+            <h1>YOUR TRAVEL MADE EASY WITH US..!</h1>
+            <h2>CALL US AT 1300 000 000</h2>
+        </div>
+    </div>
+
+    <div class="modal" id="signInModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">SIGN IN</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="emailId" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="emailId" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Your Password">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-12 text-center">
+                            <button type="button" class="signin-btn" onclick="validateSignIn()">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

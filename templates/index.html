@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Offers</title>
+</head>
+
+{% block content %}
+    <h1 class="text-center section-heading" id="offer-section-heading">OFFERS</h1>
+
+    <section id="offers-section" class="container">
+    </section>
+
+
+    <div class="modal" id="offer-details-Modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">OFFER DETAILS</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="update-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="offer-desc" class="form-label">Offer Desc</label>
+                                    <textarea class="form-control" id="offer-desc" name="description" ></textarea>
+                                </div>
+                                <div class="mb-1">
+                                    <label for="startdate" class="form-label">Start Date</label>
+                                    <input type="date" id="startdate" class="form-select" name="start_date" required="required">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="endDate" class="form-label">End Date</label>
+                                    <input type="date" id="endDate" class="form-select" name="end_date" required="required">
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="offerCode" class="form-label">Discount</label>
+                                    <input type="number" class="form-control" name="discount" id="offerCode">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pics" class="form-label">Attach Pictures</label>
+                                    <input type="file" class="form-control" id="pics" name="image" accept="image/png, image/jpeg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-12 text-center">
+                                <button type="button" onclick="update_offer()" class="signin-btn update_offer" >UPDATE</button>
+                                <button type="button" class="signin-btn" onclick="closeOfferDtlsModal()" >CANCEL</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="delete-Modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Confirmation</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h6 class="modal-title">Are you sure want to delete this offer ?</h6>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-sm-12 text-center">
+                            <button type="button" class="signin-btn" onclick="delete_offer()">DELETE</button>
+                            <button type="button" class="signin-btn" data-bs-dismiss="modal" onclick="closeOfferDtlsModal()" >CANCEL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal" id="enquiryModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Enter your query</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="query_form">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                         <div class="mb-3">
+                            <label for="offerCode" class="form-label">Enter your query here</label>
+                            <input type="text" class="form-control query" placeholder="Enter query" name="query" id="query">
+                        </div>
+                        <input type="hidden" class="offer_id" name="offer_id">
+                    </div>
+                </form>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="sendenquiry()">Send</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

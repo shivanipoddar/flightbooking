@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flight</title>
+</head>
+
+{% block content %}
+    <section>
+        <h1 class="text-center section-heading">FIND FLIGHTS</h1>
+        <form id="find_flight">
+            {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="from" class="form-label">FROM</label>
+                        <select id="from" class="form-select" required="required" name="from">
+                            <option selected disabled value="">SELECT</option>
+                            <option value="QUEENSLAND">QUEENSLAND</option>
+                            <option value="TASMANIA">TASMANIA</option>
+                            <option value="SOUTH AUSTRALIA">SOUTH AUSTRALIA</option>
+                            <option value="VICTORIA">VICTORIA</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="to" class="form-label">TO</label>
+                        <select id="to" class="form-select" required="required" name="to">
+                            <option selected disabled value="">SELECT</option>
+                             <option value="QUEENSLAND">QUEENSLAND</option>
+                            <option value="TASMANIA">TASMANIA</option>
+                            <option value="SOUTH AUSTRALIA">SOUTH AUSTRALIA</option>
+                            <option value="VICTORIA">VICTORIA</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="date" class="form-label">JOURNEY DATE</label>
+                        <input type="date" id="date" class="form-select" required="required" name="date">
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="class" class="form-label">CLASS</label>
+                        <select id="class" class="form-select" required="required" name="class">
+                            <option selected value="">SELECT</option>
+                            <option value="ECONOMY">ECONOMY</option>
+                            <option value="BUSINESS">BUSINESS</option>
+                            <option value="LUXURY">LUXURY</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-3">
+                        <label for="passengerCount" class="form-label">NO. OF PASSENGERS</label>
+                        <select id="passengerCount" class="form-select" autocomplete="on" required="required" name="passenger">
+                            <option selected value="">SELECT</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12 text-center">
+                        <button type="button" class="search-btn" onclick="searchFlight()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <hr>
+    <section class="text-center" id="search-data">
+
+    </section>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmation</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Your Booking details will be sent your email ID.
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal" id="codeModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Do you have discount code?</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                     <div class="mb-3">
+                        <label for="offerCode" class="form-label">Discount</label>
+                        <input type="text" class="form-control offer_code" placeholder="Enter Code" name="code" id="offerCode">
+                    </div>
+                    <input type="hidden" class="flight_id">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="applycode()" data-bs-dismiss="modal">Skip</button>
+                    <button type="button" class="btn btn-danger" onclick="applycode()">Apply</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Offers</title>
+</head>
+
+{% block content %}
+<div class="login-page">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="">
+                    <div class="bg-white shadow rounded">
+                        <div class="row">
+                            <div class="col-md-12 pe-0">
+                                <div class="form-left h-100 py-5 px-5">
+                                    <h1 class="text-center mb-3">Add Offer Details</h1>
+                                    <form id="login-form" class="row g-4" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="col-12">
+                                            <label>Description<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+<!--                                                <div class="input-group-text"><i class="bi bi-person-fill"></i></div>-->
+                                                <textarea class="form-control" name="description" placeholder="Add Description"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Discount<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+<!--                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>-->
+                                                <input type="number" class="form-control" name="discount" placeholder="Add Discount">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Offer Start Date<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+<!--                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>-->
+                                                <input type="date" class="form-control" name="start_date" placeholder="Start Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Offer End Date<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+<!--                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>-->
+                                                <input type="date" class="form-control" name="end_date" placeholder="End Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Upload Image<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+<!--                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>-->
+                                                <input type="file" class="form-control" name="image" accept="image/png, image/jpeg">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-primary px-4 mt-4" >Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

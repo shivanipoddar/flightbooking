@@ -1,0 +1,183 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg-dark {
+  background-color: #7265e7 !important;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.nav-link {
+  color: #ffffff;
+}
+
+.sign-in-btn {
+  background-color: #ffffff;
+  color: #7265e7;
+  border: none;
+}
+
+.sign-in-btn:hover {
+  background-color: #7265e7;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.landing-screen-bg {
+  /* The image used */
+  background-image: url(../../img/landing-img2.jpg);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.book-ticket-btn {
+  padding: 15px;
+  background-color: #7265e7;
+  color: #ffff;
+  font-size: 25px;
+  border: none;
+  margin: auto;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 45%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  /* border: 3px solid green;  */
+  flex-direction: column;
+  color: #7265e7;
+  font-style: italic;
+}
+
+.search-btn {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7265e7;
+  color: #ffff;
+  font-size: 18px;
+}
+
+.signin-btn {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7265e7;
+  color: #ffff;
+  font-size: 18px;
+}
+
+.section-heading {
+  font-size: 28px;
+  font-weight: bold;
+  font-style: italic;
+  padding-top: 15px;
+  color: #606060;
+}
+
+.confirm-booking-btn {
+  padding: 5px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #7265e7;
+  color: #ffff;
+  font-size: 14px;
+}
+
+img.about-img {
+  width: 100%;
+}
+
+.about-us-label {
+  font-size: 18px;
+  line-height: 2;
+  text-align: justify;
+}
+
+.address-box {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.address-box h2 {
+  color: #7265e7;
+}
+
+.address-box label {
+  display:block
+}
+
+#my-bookings-table {
+  width: 80%;
+  margin: auto;
+}
+
+.red {
+  outline: 1px solid red;
+}
+
+.green {
+  outline: 1px solid green;
+}
+
+.action-icons i {
+  margin: 5px;
+}
+
+div#offers-table_filter {
+  float: right;
+}
+
+.modal.fade.in {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.modal { overflow-y: auto !important; }
+
+div#offers-table_length {
+    display: none;
+}
+
+.chips {
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.green {
+  background-color: green;
+}
+.orange {
+    background-color: orange;
+}
+.red {
+  background-color: red;
+}
+.black {
+  background-color: black;
+}

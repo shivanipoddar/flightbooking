@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flight</title>
+</head>
+
+{% block content %}
+
+  <section>
+      <h1 class="text-center section-heading">Enquiry</h1>
+      <table class="table" id="my-enquiry-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Offer Description</th>
+              <th scope="col">Discount</th>
+              <th scope="col">Query</th>
+              <th scope="col">Query by</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for query in Queries %}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{query.offer_id.description}}</td>
+              <td>{{query.offer_id.discount}}</td>
+              <td>{{query.message}}</td>
+              <td>{{query.enquiry_by.user_id.username}}</td>
+              <td><a href="{% url 'querydetail' query.id %}">View Detail</a> <a onclick="addreply({{query.id}})"> Add Reply</a> </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+  </section>
+
+<div class="modal" id="replyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Enter your reply</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="reply_form">
+                    {% csrf_token %}
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                         <div class="mb-3">
+                            <label for="reply" class="form-label">Enter your reply here</label>
+                            <input type="text" class="form-control reply" placeholder="Enter reply" name="reply" id="reply">
+                        </div>
+                        <input type="hidden" class="enquiry_id" name="enquiry_id">
+                    </div>
+                </form>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="sendreply()">Send</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
